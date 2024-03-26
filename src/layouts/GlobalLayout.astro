@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import NavBar from "../shared/NavBar.astro";
 import Footer from "../shared/Footer.astro";
 ---
@@ -8,6 +9,7 @@ import Footer from "../shared/Footer.astro";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
+    <ViewTransitions />
 </head>
 <body>
     <NavBar/>
@@ -17,7 +19,7 @@ import Footer from "../shared/Footer.astro";
             <div class="vl"></div>
             <h1 class="occupation">Frontend Developer</h1>
         </div>
-        <img src="src/assets/profile.jpg" class="profile-pic"/>
+        <img src="src/assets/profile.jpg" class="profile-pic" transition:persist/>
     </div>
     <div class="layout--content">
         <slot />
