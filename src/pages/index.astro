@@ -3,6 +3,14 @@ import GlobalLayout from '../layouts/GlobalLayout.astro';
 ---
 
 <GlobalLayout>
+  <article>
+    <p>
+        ¡Hola! Bienvenido a mi sitio web. <br> Soy Pablo Manuel, graduado en matemáticas, apasionado del desarrollo web
+        y con más de 2 años de experiencia como Frontend developer. Gracias por pasarte por mi web. Te invito a echarle
+        un vistazo a mis proyectos, así como mi experiencia profesional y algo más de información sobre mi.
+        En caso de ser de tu interés, no dudes en contactarme. 
+    </p>
+</article>
 </GlobalLayout>
 
 <style>
@@ -10,5 +18,19 @@ import GlobalLayout from '../layouts/GlobalLayout.astro';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+article {
+  position: relative;
+  top: 10%;
+  padding: 20px;
+  width: 60%;
+  font-size: 28px;
+  color: white;
+  font-family: cursive;
+
+  &::first-line{
+    color: #FE7F00;
+  }
 }
 </style>

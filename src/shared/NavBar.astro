@@ -1,0 +1,71 @@
+---
+import HomeIcon from "../assets/HomeIcon.astro"
+import ExperienceIcon from "../assets/ExperienceIcon.astro"
+import SkillsIcon from "../assets/SkillsIcon.astro"
+import ProjectsIcon from "../assets/ProjectsIcon.astro"
+---
+
+<nav>
+    <a href="/">
+        <HomeIcon />
+        <span>Sobre mi</span>
+    </a>
+    <a href="/Experience">
+        <ExperienceIcon />
+        <span>Experiencia</span>
+    </a>
+    <a href="/Skills">
+        <SkillsIcon />
+        <span>Skills</span>
+    </a>
+    <a href="/Projects">
+        <ProjectsIcon />
+        <span>Proyectos personales</span>
+    </a>
+</nav>
+
+<style>
+    nav {
+        position: absolute;
+        top: 40%;
+        right: 2%;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        padding: 10px;
+        gap: 10px;
+        background: #2A182B;
+        /* background: linear-gradient(180deg, #2A182B 0%, #13151A 100%); */
+        border-radius: 25px;
+
+        a {
+            text-decoration: none;
+
+            span {
+                display: none; /* Mostrar el texto al hacer hover */
+            }
+
+            &:visited{
+                color: black;
+            }
+
+            &:hover {
+                blur: 1.5rem;
+                svg{
+                    transform: scale(1.2);
+                }
+                span {
+                    display: inline-block; /* Mostrar el texto al hacer hover */
+                    position: absolute;
+                    left: -200%; /* Posicionar el tooltip a la izquierda */
+                    color: rgb(111, 50, 190);;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    white-space: wrap;
+                    width: 80px;
+                    font-family: cursive;
+                }
+            }
+        }
+    }
+</style>
