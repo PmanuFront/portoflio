@@ -1,0 +1,63 @@
+---
+import EmailIcon from "../assets/EmailIcon.astro"
+import GithubIcon from "../assets/GithubIcon.astro"
+import PdfIcon from "../assets/PdfIcon.astro"
+import LinkedinIcon from "../assets/LinkedinIcon.astro"
+---
+
+<footer>
+    <a href="https://www.linkedin.com/in/pablo-manuel-c%C3%A1ceres-menacho" target="_blank">
+        <LinkedinIcon />
+        <span>Linkedin</span>
+    </a>
+    <a href="https://github.com/PmanuFront" target="_blank">
+        <GithubIcon />
+        <span>Github</span>
+    </a>
+    <a>
+        <EmailIcon />
+        <span>Email</span>
+    </a>
+    <a>
+        <PdfIcon />
+        <span>Cv</span>
+    </a>
+</footer>
+
+<style>
+footer {
+        display: flex;
+        position: absolute;
+        bottom: 5%;
+        right: 45%;
+        width: fit-content;
+        padding: 10px;
+        gap: 10px;
+        background: #2A182B;
+        border-radius: 25px;
+
+        a {
+            display: flex;
+            flex-direction: column;
+
+
+            span {
+                display: none;
+            }
+
+            &:hover {
+                svg{
+                    transform: scale(1.2);
+                }
+                span {
+                    display: inline-block;
+                    position: absolute;
+                    top: -50%;
+                    white-space: wrap;
+                    font-family: cursive;
+                    color: rgb(111, 50, 190);
+                }
+            }
+        }
+    }
+</style>
