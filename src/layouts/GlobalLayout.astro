@@ -22,6 +22,7 @@ import Footer from "../shared/Footer.astro";
         <img src="src/assets/profile.jpg" class="profile-pic" transition:persist/>
     </div>
     <main class="layout--content">
+        <slot name='title' class="slot_title"/>
         <slot />
     </main>
     <Footer />
@@ -87,7 +88,18 @@ body {
         }
     }
     .layout--content {
+
+        h1 {
+            position: sticky;
+            top: 0px;
+            margin-top: 0px;
+            text-align: center;
+            font-size: 25px;
+            color: $title-color;
+        }
+
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;

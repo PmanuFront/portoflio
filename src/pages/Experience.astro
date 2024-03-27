@@ -1,9 +1,11 @@
 ---
 import GlobalLayout from '../layouts/GlobalLayout.astro';
+import Carousel from '../components/Carousel.vue';
 ---
 
 <GlobalLayout>
-  <h1>Experiencie</h1>
+  <h1 slot="title">Experiencie</h1>
+  <Carousel client:load/>
 </GlobalLayout>
 
 <style>

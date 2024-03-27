@@ -7,7 +7,7 @@ import {TechType} from '../models/technonlogie.model';
 
 <GlobalLayout>
   <article>
-    <h1>Skills</h1>
+    <h1>Skills</h1> <!-- Cambiar esto: Hacer que en el layout se configure para todas las páginas de igual forma el título: named slot -->
   
     <div class="sections_container">
       <section>
@@ -94,15 +94,6 @@ article {
   flex-direction: column;
   align-items: center;
   width: 100%;
-
-  h1 {
-    position: sticky;
-    top: 0px;
-    margin-top: 0px;
-    text-align: center;
-    font-size: 25px;
-    color: $title-color;
-  }
 
   .sections_container {
     display: flex;
