@@ -29,25 +29,8 @@ import Footer from "../shared/Footer.astro";
 </body>
 </html>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* Estilos para el navegador Chrome, Safari y Edge */
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #2A182B;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: rgb(111, 50, 190);
-        border-radius: 5px;
-    }
-}
+<style lang="scss" is:global>
+@import '../styles/main.scss';
 body {
     margin: 0;
     padding: 0;
@@ -62,7 +45,7 @@ body {
         &::before {
             content: '';
             position: absolute;
-	        background-color: #880015;
+	        background-color: $layout-diagonal-color;
             left: 0;
             width: 100%;
             height: 200px;
@@ -70,17 +53,22 @@ body {
         }
 
         .basic-description {
-            position: relative;
-            color: white;
             display: flex;
-            align-items: center;
-            left: 30vw;
+            position: relative;
             top: 6vh;
+            left: 30vw;
             width: fit-content;
+            align-items: center;
             gap: 20px;
+            color: $primary-color;
+            
+            h1 {
+                margin: 0px;
+                font-family: 'Times New Roman', Times, serif;
+            }
 
             .name::first-line{
-                color: #FE7F00;
+                color: $title-color;
             }
 
             .vl {

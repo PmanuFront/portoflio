@@ -13,44 +13,47 @@ const { name, type } = Astro.props
     { name }
 </span>
 
-<style>
+<style lang="scss">
+@import '../styles/main.scss';
     span {
         border-radius: 20px;
         color: white;
-        border: 2px solid;
+        border: 3px solid;
         padding: 7px;
         font-size: 15px;
         font-weight: bold;
         color: white;
+        min-width: 40px;
+        text-align: center;
     }
 
     .lenguajes {
-        color: greenyellow;
-        border-color: green;
+        color: $languages-color;
+        border-color: $languages-border-color;
     }
 
     .frontend {
-        color: aqua;
-        border-color: aquamarine;
+        color: $frontend-color;
+        border-color: $frontend-border-color;
     }
 
     .backend {
-        color: red;
-        border-color: crimson;
+        color: $backend-color;
+        border-color: $backend-border-color;
     }
 
     .control_versiones {
-        color: lightgray;
-        border-color: gray;
+        color: $vc-color;
+        border-color: $vc-border-color;
     }
 
     .base_datos {
-        color: violet;
-        border-color: darkviolet;
+        color: $bd-color;
+        border-color: $bd-border-color;
     }
 
     .otros {
-        color: yellow;
-        border-color: goldenrod;
+        color: $other-color;
+        border-color: $other-border-color;
     }
 </style>

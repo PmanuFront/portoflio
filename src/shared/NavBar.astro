@@ -24,7 +24,8 @@ import ProjectsIcon from "../assets/ProjectsIcon.astro"
     </a>
 </nav>
 
-<style>
+<style lang="scss">
+@import '../styles/main.scss';    
     nav {
         position: absolute;
         top: 40%;
@@ -34,7 +35,7 @@ import ProjectsIcon from "../assets/ProjectsIcon.astro"
         width: fit-content;
         padding: 10px;
         gap: 10px;
-        background: #2A182B;
+        background: $secondary-bg-color;
         border-radius: 25px;
 
         a {
@@ -51,8 +52,7 @@ import ProjectsIcon from "../assets/ProjectsIcon.astro"
                     position: absolute;
                     left: -200%;
                     white-space: wrap;
-                    font-family: cursive;
-                    color: rgb(111, 50, 190);
+                    color: $secondary-color;
                     max-width: 80px;
                 }
             }
