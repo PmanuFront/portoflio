@@ -1,0 +1,56 @@
+---
+import type { TechType } from '../models/technonlogie.model';
+
+interface Props {
+    name: string;
+    type: TechType
+}
+
+const { name, type } = Astro.props
+---
+
+<span class={type.toLowerCase().trim()}>
+    { name }
+</span>
+
+<style>
+    span {
+        border-radius: 20px;
+        color: white;
+        border: 2px solid;
+        padding: 7px;
+        font-size: 15px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .lenguajes {
+        color: greenyellow;
+        border-color: green;
+    }
+
+    .frontend {
+        color: aqua;
+        border-color: aquamarine;
+    }
+
+    .backend {
+        color: red;
+        border-color: crimson;
+    }
+
+    .control_versiones {
+        color: lightgray;
+        border-color: gray;
+    }
+
+    .base_datos {
+        color: violet;
+        border-color: darkviolet;
+    }
+
+    .otros {
+        color: yellow;
+        border-color: goldenrod;
+    }
+</style>
