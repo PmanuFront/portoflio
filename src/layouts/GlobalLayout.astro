@@ -21,9 +21,9 @@ import Footer from "../shared/Footer.astro";
         </div>
         <img src="src/assets/profile.jpg" class="profile-pic" transition:persist/>
     </div>
-    <div class="layout--content">
+    <main class="layout--content">
         <slot />
-    </div>
+    </main>
     <Footer />
     <!-- //TODO: PUNTO RUPTURA: 1100px widh -->
 </body>
@@ -34,6 +34,19 @@ import Footer from "../shared/Footer.astro";
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Estilos para el navegador Chrome, Safari y Edge */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #2A182B;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgb(111, 50, 190);
+        border-radius: 5px;
+    }
 }
 body {
     margin: 0;
