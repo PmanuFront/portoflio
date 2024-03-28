@@ -1,18 +1,28 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { experienceData } from "../data/experience.data";
 import LeftRowIcon from '../assets/LeftRowIcon.astro';
 
 const intervalTime = 5000; // Cambia la diapositiva cada 5 segundos
-let index = ref(0);    
-    
+const index = ref(0);
+const prevIndex = computed(() => {
+    if(index.value == 0) return experienceData.length -1;
+
+    return index.value -1;
+})
+const nextIndex = computed(() => {
+    if(index.value == experienceData.length -1) return 0;
+
+    return index.value + 1;
+})
+
 const nextSlide = () => {
     index.value++;
     if (index.value >= experienceData.length) {
         index.value = 0;
     }
 }
-    
+
 const prevSlide = () => {
     index.value--;
     if (index.value < 0) {
@@ -20,7 +30,7 @@ const prevSlide = () => {
     }
 }
 
-// setInterval(nextSlide, intervalTime);  
+// setInterval(nextSlide, intervalTime);
 </script>
 
 <template>
@@ -28,7 +38,15 @@ const prevSlide = () => {
         <button @click="prevSlide">
             -
         </button>
-        {{experienceData[index].description}}
+        <div class="prevSlide">
+            {{ experienceData[prevIndex].description }}
+        </div>
+        <div class="currentSlide">
+            {{experienceData[index].description}}
+        </div>
+        <div class="nextSlide">
+            {{ experienceData[nextIndex].description }}
+        </div>
         <button @click="nextSlide">+</button>
     </div>
 </template>
@@ -51,6 +69,43 @@ const prevSlide = () => {
         color: $secondary-color;
         border: 3px solid $secondary-bg-color;
         border-radius: 40px;
+    }
+
+    @keyframes carousel-animation {
+        from {
+            transform: scale(1);
+            left: 0%;
+        }
+
+        to {
+            transform: scale(1.1);
+            left: 10%;
+        }
+    }
+
+    .prevSlide, .nextSlide, .currentSlide {
+        position: relative;
+        width: 30%;
+        // animation-name: carousel-animation;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+    }
+
+    .prevSlide, .nextSlide {
+        z-index: 0;
+        filter: blur(2px);
+    }
+
+    .currentSlide {
+        z-index: 1;
+    }
+
+    .prevSlide {
+        left: 5%;
+    }
+
+    .nextSlide {
+        right: 5%;
     }
 }
 </style>
