@@ -4,6 +4,11 @@ import { experienceData } from "../data/experience.data";
 import LeftRowIcon from '../assets/LeftRowIcon.astro';
 
 const intervalTime = 5000; // Cambia la diapositiva cada 5 segundos
+const showAnimation = ref(false);
+const leftAnimationName = ref('');
+const middleAnimationName = ref('');
+const rightAnimationName = ref('');
+
 const index = ref(0);
 const prevIndex = computed(() => {
     if(index.value == 0) return experienceData.length -1;
@@ -16,18 +21,40 @@ const nextIndex = computed(() => {
     return index.value + 1;
 })
 
-const nextSlide = () => {
-    index.value++;
-    if (index.value >= experienceData.length) {
-        index.value = 0;
-    }
+const prevSlide = () => {
+    leftAnimationName.value = 'right-to-left-prev-animation';
+    middleAnimationName.value = 'middle-right-to-left-prev-animation'
+    rightAnimationName.value = 'left-to-right-prev-animation';
+    showAnimation.value = true;
+
+    setTimeout(() => {
+        index.value++;
+        if (index.value >= experienceData.length) {
+            index.value = 0;
+        }
+        leftAnimationName.value = '';
+        middleAnimationName.value = ''
+        rightAnimationName.value = '';
+        showAnimation.value = false;
+    }, 700);
 }
 
-const prevSlide = () => {
-    index.value--;
-    if (index.value < 0) {
-        index.value = experienceData.length - 1;
-    }
+const nextSlide = () => {
+    leftAnimationName.value = 'left-to-right-next-animation';
+    middleAnimationName.value = 'middle-left-to-right-next-animation'
+    rightAnimationName.value = 'right-to-left-next-animation';
+    showAnimation.value = true;
+
+    setTimeout(() => {
+        index.value--;
+        if (index.value < 0) {
+            index.value = experienceData.length - 1;
+        }
+        leftAnimationName.value = '';
+        middleAnimationName.value = ''
+        rightAnimationName.value = '';
+        showAnimation.value = false;
+    }, 700);
 }
 
 // setInterval(nextSlide, intervalTime);
@@ -38,13 +65,19 @@ const prevSlide = () => {
         <button @click="prevSlide">
             -
         </button>
-        <div class="prevSlide">
+        <div class="prevSlide" :class="{
+            [leftAnimationName]: showAnimation
+        }">
             {{ experienceData[prevIndex].description }}
         </div>
-        <div class="currentSlide">
+        <div class="currentSlide" :class="{
+            [middleAnimationName]: showAnimation
+        }">
             {{experienceData[index].description}}
         </div>
-        <div class="nextSlide">
+        <div class="nextSlide" :class="{
+            [rightAnimationName]: showAnimation
+        }">
             {{ experienceData[nextIndex].description }}
         </div>
         <button @click="nextSlide">+</button>
@@ -71,24 +104,9 @@ const prevSlide = () => {
         border-radius: 40px;
     }
 
-    @keyframes carousel-animation {
-        from {
-            transform: scale(1);
-            left: 0%;
-        }
-
-        to {
-            transform: scale(1.1);
-            left: 10%;
-        }
-    }
-
     .prevSlide, .nextSlide, .currentSlide {
         position: relative;
         width: 30%;
-        // animation-name: carousel-animation;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
     }
 
     .prevSlide, .nextSlide {
@@ -107,5 +125,39 @@ const prevSlide = () => {
     .nextSlide {
         right: 5%;
     }
+}
+
+.right-to-left-next-animation,
+.left-to-right-next-animation,
+.middle-left-to-right-next-animation,
+.right-to-left-prev-animation,
+.left-to-right-prev-animation,
+.middle-right-to-left-prev-animation {
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+}
+
+.right-to-left-next-animation{
+    animation-name: right-to-left-next-animation;
+}
+
+.left-to-right-next-animation {
+    animation-name: left-to-right-next-animation;
+}
+
+.middle-left-to-right-next-animation {
+    animation-name: middle-left-to-right-next-animation;
+}
+
+.right-to-left-prev-animation{
+    animation-name: right-to-left-prev-animation;
+}
+
+.left-to-right-prev-animation {
+    animation-name: left-to-right-prev-animation;
+}
+
+.middle-right-to-left-prev-animation {
+    animation-name: middle-right-to-left-prev-animation;
 }
 </style>
