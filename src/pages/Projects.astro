@@ -1,13 +1,9 @@
 ---
 import GlobalLayout from '../layouts/GlobalLayout.astro';
+import Carousel from '../components/Carousel.vue';
 ---
 
 <GlobalLayout>
   <h1>Projects</h1>
+  <Carousel client:load/>
 </GlobalLayout>
-
-<style>
-    h1 {
-        color: #f1f1f1;
-    }
-</style>

@@ -22,9 +22,9 @@ const nextIndex = computed(() => {
 })
 
 const prevSlide = () => {
-    leftAnimationName.value = 'right-to-left-prev-animation';
+    leftAnimationName.value = 'left-to-right-prev-animation';
     middleAnimationName.value = 'middle-right-to-left-prev-animation'
-    rightAnimationName.value = 'left-to-right-prev-animation';
+    rightAnimationName.value = 'right-to-left-prev-animation';
     showAnimation.value = true;
 
     setTimeout(() => {
@@ -36,7 +36,7 @@ const prevSlide = () => {
         middleAnimationName.value = ''
         rightAnimationName.value = '';
         showAnimation.value = false;
-    }, 700);
+    }, 950);
 }
 
 const nextSlide = () => {
@@ -54,7 +54,7 @@ const nextSlide = () => {
         middleAnimationName.value = ''
         rightAnimationName.value = '';
         showAnimation.value = false;
-    }, 700);
+    }, 950);
 }
 
 // setInterval(nextSlide, intervalTime);
@@ -93,6 +93,8 @@ const nextSlide = () => {
     color: white;
     width: 60%;
     gap: 5px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 
     button {
         background-color: transparent;
@@ -102,6 +104,7 @@ const nextSlide = () => {
         color: $secondary-color;
         border: 3px solid $secondary-bg-color;
         border-radius: 40px;
+        cursor: pointer;
     }
 
     .prevSlide, .nextSlide, .currentSlide {
@@ -112,6 +115,7 @@ const nextSlide = () => {
     .prevSlide, .nextSlide {
         z-index: 0;
         filter: blur(2px);
+        opacity: 50%;
     }
 
     .currentSlide {
@@ -120,10 +124,12 @@ const nextSlide = () => {
 
     .prevSlide {
         left: 5%;
+        transform: rotateY(300deg);
     }
 
     .nextSlide {
         right: 5%;
+        transform: rotateY(120deg);
     }
 }
 
@@ -133,7 +139,7 @@ const nextSlide = () => {
 .right-to-left-prev-animation,
 .left-to-right-prev-animation,
 .middle-right-to-left-prev-animation {
-    animation-duration: 0.75s;
+    animation-duration: 1s;
     animation-timing-function: linear;
 }
 

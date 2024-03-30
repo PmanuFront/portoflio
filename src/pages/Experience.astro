@@ -1,11 +1,12 @@
 ---
 import GlobalLayout from '../layouts/GlobalLayout.astro';
-import Carousel from '../components/Carousel.vue';
+import AccordionComponent from '../components/AccordionComponent.vue';
+import {experienceData} from '../data/experience.data';
 ---
 
 <GlobalLayout>
-  <h1 slot="title">Experiencie</h1>
-  <Carousel client:load/>
+  <h1 slot="title">Experiencia</h1>
+  <AccordionComponent client:load/>
 </GlobalLayout>
 
 <style>
