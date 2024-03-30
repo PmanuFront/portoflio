@@ -1,0 +1,95 @@
+<article>
+  <form method="POST" id="form">
+
+    <div class="first-row">
+      <div class="name-container">
+        <label for="name"><b>Nombre</b></label>
+        <input id="name" name="name" type="text" placeholder="Introduce tu nombre"/>
+      </div>
+  
+      <div class="email-container">
+          <label for="email"><b>Email</b></label>
+          <input id="email" name="email" type="email" placeholder="Introduce tu email">
+      </div>
+    </div>
+
+    <div class="last-row">
+      <div class="issue-container">
+        <label for="issue"><b>Asunto</b></label>
+        <input id="issue" name="issue" type="text" placeholder="Introduce el asunto"/>
+      </div>
+
+      <div class="phone-container">
+        <label for="phone"><b>Teléfono de contacto</b></label>
+        <input id="phone" name="phone" type="number" placeholder="Introduce un teléfono de contacto"/>
+      </div>
+    </div>
+    
+    <div class="description-container">
+        <label for="description"><b>Deja tu mensaje</b></label>
+        <textarea id="description" name="description"/>
+    </div>
+    <div class="actions">
+        <button type="submit" id="submitButton">Enviar</button>
+    </div>
+  </form>
+</article>
+
+<style lang="scss">
+@import '../styles/main.scss';
+
+article{
+  width: 50%;
+  padding: 20px;
+  background: #f1f1f1;
+  form {
+    font-size: 16px;
+    gap: 1rem;
+
+    .first-row, .last-row{
+      display: flex;
+      justify-content: space-between;
+    }
+
+        .actions{
+            display: flex;
+            justify-content: right;
+            gap: 10px;
+            button {
+                color: $secondary-color;
+                border: 3px solid $secondary-bg-color;
+                border-radius: 5px;
+                padding: 5px 10px;
+                font-weight: bold;
+
+                &:hover{
+                    cursor: pointer;
+                    background: $secondary-bg-color;
+                    color: #f1f1f1;
+                }
+            }
+        }
+      }
+}
+
+.email-container, .description-container, .name-container, .issue-container, .phone-container{
+          display: flex;
+          flex-direction: column;
+          margin: 5px 0;
+          width: 45%;
+
+          label{
+            margin-bottom: 0.5rem;
+              b{
+                  color: $secondary-color;
+              }
+          }
+
+          input, textarea{
+              color: $secondary-color;
+              border: 2px solid $secondary-bg-color;
+              border-radius: 5px;
+              padding: 5px;
+          }
+      }
+</style>
